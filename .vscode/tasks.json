@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build 1_ints",
+            "type": "shell",
+            "command": "make -C examples/1_ints",
+            "problemMatcher": [ "$gcc" ],
+            "group": "build"
+        }
+    ]
+}
