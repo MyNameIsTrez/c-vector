@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 10:31:56 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 16:06:37 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/19 16:13:26 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	int	*ints;
 	int	v;
 
-	ints = vector_new(sizeof(int), 1);
+	ints = vector_new(sizeof(int));
 
 	vector_reserve(&ints, 1);
 	v = 4;

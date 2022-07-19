@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 10:29:17 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 14:35:55 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/19 16:18:05 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void	*vector_new(size_t element_size, size_t count);
+void	*vector_new(size_t element_size);
 void	vector_reserve(void *vector, size_t additional_elements);
 void	vector_push(void *vector, void *value_ptr);
 

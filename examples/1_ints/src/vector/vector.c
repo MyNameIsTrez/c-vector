@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/06 15:57:06 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 16:08:45 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/19 16:21:23 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ typedef struct s_vectors_metadata
 	t_vector_metadata	*metadata;
 }	t_vectors_metadata;
 
-static void	vector_register(void *vector, size_t element_size, size_t size);
-
 static t_vectors_metadata	*get_vectors_metadata_ptr(void)
 {
 	static bool					did_init = false;
@@ -47,7 +45,6 @@ static t_vectors_metadata	*get_vectors_metadata_ptr(void)
 		vectors_metadata.metadata[0].count = 1;
 		vectors_metadata.metadata[0].size = 1;
 		vectors_metadata.metadata[0].element_size = sizeof(t_vector_metadata);
-		// vector_register(vectors_metadata.metadata, sizeof(t_vector_metadata), 1);
 	}
 	return (&vectors_metadata);
 }
@@ -86,14 +83,14 @@ static void	vector_register(void *vector, size_t element_size, size_t size)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void	*vector_new(size_t element_size, size_t count)
+void	*vector_new(size_t element_size)
 {
 	void	*vector;
 
-	vector = malloc(element_size * count);
+	vector = malloc(1);
 	if (vector == NULL)
 		return (NULL);
-	vector_register(vector, element_size, count);
+	vector_register(vector, element_size, 0);
 	return (vector);
 }
 
