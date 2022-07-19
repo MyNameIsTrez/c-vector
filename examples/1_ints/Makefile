@@ -6,7 +6,7 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/07/19 10:25:37 by sbos          #+#    #+#                  #
-#    Updated: 2022/07/19 12:38:40 by sbos          ########   odam.nl          #
+#    Updated: 2022/07/19 15:22:57 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CC := gcc
 
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g3
+CFLAGS += -fsanitize=address
 
 OBJ_DIR := obj
 

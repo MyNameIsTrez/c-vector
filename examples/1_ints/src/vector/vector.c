@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/06 15:57:06 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 15:20:55 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/19 16:08:45 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,21 +104,16 @@ void	vector_reserve(void *vector, size_t additional_elements)
 
 	vector_ = vector;
 	metadata = vector_get_metadata(*vector_);
-	// TODO: Check whether reordering these statements gives performance boost
-	if (metadata->count == 0)
+	metadata->size += additional_elements;
+	// TODO: replace realloc with ft_realloc
+	if (metadata == metadata->address)
 	{
-		metadata->size += additional_elements;
-		metadata->address = malloc(metadata->size * metadata->element_size);
-		*vector_ = metadata->address;
+		metadata = realloc(metadata->address, metadata->size * metadata->element_size);
+		metadata->address = metadata;
 	}
 	else
-	{
-		// TODO: Try using 1.5 by making size a floating point number
-		metadata->size *= 2;
-		// TODO: Replace realloc() with ft_realloc()
 		metadata->address = realloc(metadata->address, metadata->size * metadata->element_size);
-		*vector_ = metadata->address;
-	}
+	*vector_ = metadata->address;
 }
 
 #include <string.h>
@@ -131,7 +126,14 @@ void	vector_push(void *vector, void *value_ptr)
 	vector_ = vector;
 	metadata = vector_get_metadata(*vector_);
 	if (metadata->count >= metadata->size)
-		vector_reserve(vector, 1);
+	{
+		if (metadata->size == 0)
+			vector_reserve(vector, 1);
+		else
+			vector_reserve(vector, metadata->size); // maybe *0.5 (because additional)
+	}
+	metadata = vector_get_metadata(*vector_);
+	// TODO: replace memcpy with ft_memcpy
 	memcpy((*vector_) + metadata->count * metadata->element_size, value_ptr, metadata->element_size);
 	metadata->count++;
 }

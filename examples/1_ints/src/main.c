@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 10:31:56 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 15:02:31 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/19 16:06:37 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@
 int	main(void)
 {
 	int	*ints;
+	int	v;
 
 	ints = vector_new(sizeof(int), 1);
-	// vector_reserve(&ints);
-	// ints[0] = 4;
-	// vector_reserve(&ints);
-	// ints[1] = 2;
-	// printf("%d%d\n", ints[0], ints[1]);
 
-	printf("%p\n", ints);
-	int var = 3;
-	vector_push(&ints, &var);
-	printf("%d\n", ints[0]);
+	vector_reserve(&ints, 1);
+	v = 4;
+	vector_push(&ints, &v);
+	v = 2;
+	vector_push(&ints, &v);
+	v = 0;
+	vector_push(&ints, &v);
+	printf("%d%d%d\n", ints[0], ints[1], ints[2]);
 
 	return (EXIT_SUCCESS);
 }
