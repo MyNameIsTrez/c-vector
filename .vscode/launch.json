@@ -7,15 +7,28 @@
 		{
 			"name": "1_ints",
 
-			// "type": "cppdbg",
-			// "MIMode": "lldb",
+			"type": "cppdbg",
+			"MIMode": "lldb",
 
-			"type": "lldb",
+			// "type": "lldb",
 
 			"request": "launch",
-			"program": "${workspaceFolder}/examples/1_ints/ints",
+			"program": "${workspaceFolder}/a.out",
 			"cwd": "${workspaceFolder}",
 			"preLaunchTask": "Build 1_ints"
+		},
+		{
+			"name": "2_two_dimensional",
+
+			"type": "cppdbg",
+			"MIMode": "lldb",
+
+			// "type": "lldb",
+
+			"request": "launch",
+			"program": "${workspaceFolder}/a.out",
+			"cwd": "${workspaceFolder}",
+			"preLaunchTask": "Build 2_two_dimensional"
 		}
 	]
 }

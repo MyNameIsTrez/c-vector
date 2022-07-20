@@ -4,7 +4,14 @@
         {
             "label": "Build 1_ints",
             "type": "shell",
-            "command": "make -C examples/1_ints",
+            "command": "make NAME=1_ints",
+            "problemMatcher": [ "$gcc" ],
+            "group": "build"
+        },
+        {
+            "label": "Build 2_two_dimensional",
+            "type": "shell",
+            "command": "make NAME=2_two_dimensional",
             "problemMatcher": [ "$gcc" ],
             "group": "build"
         }

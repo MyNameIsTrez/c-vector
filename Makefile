@@ -6,13 +6,13 @@
 #    By: sbos <sbos@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/07/19 10:25:37 by sbos          #+#    #+#                  #
-#    Updated: 2022/07/19 15:22:57 by sbos          ########   odam.nl          #
+#    Updated: 2022/07/20 10:38:20 by sbos          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 ################################################################################
 
-NAME := ints
+NAME := 1_ints
 
 CC := gcc
 
@@ -25,18 +25,18 @@ OBJ_DIR := obj
 ################################################################################
 
 SOURCES := \
-	src/main.c
+	examples/$(NAME)/main.c
 
 HEADERS := \
-	src/main.h
+	examples/$(NAME)/main.h
 
 ################################################################################
 
 SOURCES += \
-	src/vector/vector.c
+	vector/vector.c
 
 HEADERS += \
-	src/vector/vector.h
+	vector/vector.h
 
 ################################################################################
 
@@ -46,7 +46,7 @@ OBJECTS := $(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 
 .PHONY: all
 all: $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS)
 
 $(OBJ_DIR)/%.o: %.c $(HEADERS)
 	@mkdir -p $(@D)
@@ -60,7 +60,7 @@ clean:
 
 .PHONY: fclean
 fclean: clean
-	rm -f $(NAME)
+	rm -f a.out
 
 .PHONY: re
 re: fclean all

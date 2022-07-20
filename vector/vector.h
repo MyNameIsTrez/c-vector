@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.h                                             :+:    :+:            */
+/*   vector.h                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/19 10:29:59 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 16:23:40 by sbos          ########   odam.nl         */
+/*   Created: 2022/07/19 10:29:17 by sbos          #+#    #+#                 */
+/*   Updated: 2022/07/20 10:30:48 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef VECTOR_H
+# define VECTOR_H
 
 ////////////////////////////////////////////////////////////////////////////////
 
 # include <stdlib.h>
-# include <stdio.h>
+# include <stdbool.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 
-# include "vector/vector.h"
+void	*vector_new(size_t element_size);
+void	vector_reserve(void *vector, size_t additional_elements);
+void	vector_push(void *vector, void *value_ptr);
 
 ////////////////////////////////////////////////////////////////////////////////
 
