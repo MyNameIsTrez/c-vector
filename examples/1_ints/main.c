@@ -6,7 +6,7 @@
 /*   By: sbos <sbos@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/19 10:31:56 by sbos          #+#    #+#                 */
-/*   Updated: 2022/07/19 16:23:55 by sbos          ########   odam.nl         */
+/*   Updated: 2022/07/20 10:57:27 by sbos          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	main(void)
 
 	vector_reserve(&ints, 1);
 
-	v = 4;
+	v = 1;
 	vector_push(&ints, &v);
 	v = 2;
 	vector_push(&ints, &v);
-	v = 0;
+	v = 3;
 	vector_push(&ints, &v);
 
 	printf("%d%d%d\n", ints[0], ints[1], ints[2]);
